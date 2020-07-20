@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
+body {
+  display:flex;
+  flex-direction:column; 
+  justify-content:center;
+  min-height:100vh;
+  font-size: 20px;
+  background: steelblue;
+  transition: background 1s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.info {
+  color: #eee;
+  width: 20%;
+  padding: 2% 0;
+  text-align: left;
+  font-size: 2rem;
+  font-weight: 500;
+  transition: all 0.5s;
+}
+
+.correct {
+  background: #070;
+}
+
+.incorrect {
+  background: #700;
+}
+
+.counter {
+  padding: 2% 0;
+  text-align: right;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #eee;
+}
+
+.question {
+  background: #7bdaff;
+  border-radius: 5px;
+  padding: 1.5em;
+  width: 100%;
+  margin-bottom: 2%;
+  font-size: 1.5rem;
+}
+
+.answer {
+  background: #bfca81;
+  height: 20%;
+  border-radius: 5px;
+  padding: 5%;
+  width: 39%;
+  margin-bottom: 2%;
+  transition: background 0.5s;
+  cursor: pointer;
+}
+
+.answer:hover {
+  color: #000;
+  background: #f1ffa4;
+  transform: scale(1.02);
+}
+
+.answer-incorrect {
+  background: #800;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.answer-correct {
+  background: #080;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .question {
+    width: 85%;
+  }
+
+  .answer {
+    width: 90%;
+    overflow: hidden;
   }
 }
