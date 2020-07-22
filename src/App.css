@@ -149,3 +149,18 @@ h2 {
 .category-chooser:focus {
   outline: none;
 }
+
+.new-quiz-button {
+  padding: 20px;
+  background: cadetblue;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: 900;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.new-quiz-button:hover {
+  box-shadow: 0px 0px 5px rgb(17, 63, 100);
+}

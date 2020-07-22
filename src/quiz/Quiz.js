@@ -2,13 +2,12 @@ import React, {
   useEffect,
   useRef,
   useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import he from 'he';
-import AnswerButton from './AnswerButton';
-import AnswerValidator from './AnswerValidator';
-import QuestionCounter from './QuestionCounter';
+import Question from './Question';
+import Result from './Result';
 
-const QUESTION_COUNT = 10;
+const QUESTION_COUNT = 20;
 
 const fetchQuestions = async (api) => fetch(api);
 const addBodyClass = className => document.body.classList.add(className);
@@ -37,7 +36,9 @@ function prepareQuestions(questions) {
 
 const Quiz = (props) => {
   const { category } = useParams();
-  const API_URL = `https://opentdb.com/api.php?amount=${QUESTION_COUNT}&category=${category}&difficulty=easy`;
+  const history = useHistory();
+
+  const API_URL = `https://opentdb.com/api.php?amount=${QUESTION_COUNT}&category=${category}`;
 
   const [questions, setQuestions] = useState([]);
   const [activeQuestion, setActiveQuestion] = useState(0);
@@ -62,10 +63,6 @@ const Quiz = (props) => {
     removeBodyClass('incorrect');
     setUserAnswer(null);
     setActiveQuestion(activeQuestion + 1);
-  }
-
-  function presentResult() {
-    
   }
 
   useEffect(() => {
@@ -94,29 +91,25 @@ const Quiz = (props) => {
       });
   }, []);
 
+  if(questions.length === 0) {
+    return <div>Loading...</div>;
+  }
+
   let allAnswers = [];
   if(questions.length > 0 && activeQuestion < QUESTION_COUNT) {
     allAnswers = questions[activeQuestion].answers;
   }
 
-  const answers = allAnswers && allAnswers.map((answer, i) => {
-    return <AnswerButton key={i}
-      answer={answer}
+  return activeQuestion < QUESTION_COUNT ?
+    <Question
+      answers={allAnswers}
+      userAnswer={userAnswer}
+      question={questions[activeQuestion].question}
+      activeQuestion={activeQuestion}
+      questionCount={QUESTION_COUNT}
       onAnswer={validateAnswer}
-      show={userAnswer !== null} />
-  });
-
-  return <>
-    <div className="top">
-      <AnswerValidator answer={userAnswer}></AnswerValidator>
-      <QuestionCounter current={activeQuestion + 1} total={QUESTION_COUNT} onFinish={presentResult} />
-    </div>  
-    <div className="question">
-      { questions.length > 0 && activeQuestion < QUESTION_COUNT && questions[activeQuestion].question }
-      { isLoading && "Loading..." }
-    </div>
-    { answers }
-  </>;
+      onNewQuiz={() => history.push('/')} /> :
+    <Result score={score} total={QUESTION_COUNT} onNewQuiz={() => history.push('/')} />;
 };
 
 export default Quiz;
