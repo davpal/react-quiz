@@ -10,7 +10,7 @@ const CategoryChooser = () => {
   }
 
   const options = categories.map(category => 
-    <option value={category.code}>{category.name}</option>
+    <option key={category.code} value={category.code}>{category.name}</option>
   );
 
   return <>

@@ -4,8 +4,8 @@ import AnswerValidator from './AnswerValidator';
 import QuestionCounter from './QuestionCounter';
 
 const Question = (props) => {
-  const answers = props.answers.map(answer =>
-    <AnswerButton answer={answer} show={props.userAnswer} onAnswer={props.onAnswer} />);
+  const answers = props.answers.map((answer, i) =>
+    <AnswerButton key={i} answer={answer} show={props.userAnswer !== null || props.userAnswer} onAnswer={props.onAnswer} />);
 
   return <>
   <div className="top">
