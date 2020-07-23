@@ -22,8 +22,8 @@ const categories = [
   { code: "28" , name: "Vehicles" },
   { code: "29" , name: "Entertainment: Comics" },
   { code: "30" , name: "Science: Gadgets" },
-  { code: "31" , name: "Entertainment: Japanese Anime &amp; Manga" },
-  { code: "32" , name: "Entertainment: Cartoon &amp; Animations" }
+  { code: "31" , name: "Entertainment: Japanese Anime & Manga" },
+  { code: "32" , name: "Entertainment: Cartoon & Animations" }
 ];
 
 export default categories;
