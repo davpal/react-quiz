@@ -6,8 +6,8 @@
   align-items: center;
   overflow: visible;
   position: relative;
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
   border-radius: 100%;
 }
 
@@ -15,6 +15,7 @@
   position: absolute;
   font-weight: bold;
   color: #BFFBF9;
+  padding: 20px;
 }
 
 .quiz-progress svg {
@@ -28,6 +29,5 @@
 
 .quiz-progress svg circle:nth-child(2) {
   transition: stroke-dashoffset 1s;
-  stroke-dasharray: 340;
   stroke-linecap: round;
 }

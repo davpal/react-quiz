@@ -14,7 +14,8 @@ const QuizProgress = (props) => <div className="quiz-progress">
             r="40"
             stroke="#BFFBF9"
             stroke-width="10"
-            stroke-dashoffset={340 - (props.current / props.total) * 340}
+            stroke-dasharray="314 314"
+            stroke-dashoffset={314 * (1 - (props.current / props.total))}
             fill="none"></circle>
   </svg>
   <div className="quiz-progress__counter">{props.current} / {props.total}</div>
