@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
-import categories from '../categories/categories';
+import categories from '../../../categories/categories';
+import Title from '../title/Title';
+import './QuizCreator.css';
 
-const CategoryChooser = () => {
+const QuizCreator = () => {
   const history = useHistory();
   const [category, setCategory] = useState(categories[0].code);
 
@@ -15,24 +17,20 @@ const CategoryChooser = () => {
   );
 
   return <>
-    <div className="bg-text">Quiz</div>
-    <div className="header">
-      <h1 className="app-title">quizapp</h1>
-      <span className="app-subtitle">in react</span>
-    </div>
+    <Title/>
     <div className="form-group">
-      <label for="category">Category</label>
+      <label htmlFor="category">Category</label>
       <select name="category" className="category-chooser"
         onChange={(e) => setCategory(e.target.value)}>
         {options}
       </select>
     </div>
     <div className="form-group">
-      <label for="question_count">Number of questions</label>
+      <label htmlFor="question_count">Number of questions</label>
       <input name="question_count" type="text"></input>
     </div>
     <button className="new-quiz-button" onClick={() => startQuiz(category)}>Start quiz</button>
   </>
 };
 
-export default CategoryChooser;
+export default QuizCreator;

@@ -4,8 +4,9 @@ import React, {
   useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import he from 'he';
-import Question from './Question';
-import Result from './Result';
+import Question from './question/Question';
+import Summary from './Summary';
+import Spinner from './home/spinner/Spinner';
 
 const QUESTION_COUNT = 20;
 
@@ -92,7 +93,7 @@ const Quiz = (props) => {
   }, []);
 
   if(questions.length === 0) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   let allAnswers = [];
@@ -109,7 +110,7 @@ const Quiz = (props) => {
       questionCount={QUESTION_COUNT}
       onAnswer={validateAnswer}
       onNewQuiz={() => history.push('/')} /> :
-    <Result score={score} total={QUESTION_COUNT} onNewQuiz={() => history.push('/')} />;
+    <Summary score={score} total={QUESTION_COUNT} onNewQuiz={() => history.push('/')} />;
 };
 
 export default Quiz;
