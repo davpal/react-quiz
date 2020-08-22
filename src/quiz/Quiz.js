@@ -7,6 +7,7 @@ import he from 'he';
 import Question from './question/Question';
 import Summary from './Summary';
 import Spinner from './home/spinner/Spinner';
+import categories from '../categories/categories';
 
 const QUESTION_COUNT = 20;
 
@@ -103,6 +104,7 @@ const Quiz = (props) => {
 
   return activeQuestion < QUESTION_COUNT ?
     <Question
+      category={category}
       answers={allAnswers}
       userAnswer={userAnswer}
       question={questions[activeQuestion].question}

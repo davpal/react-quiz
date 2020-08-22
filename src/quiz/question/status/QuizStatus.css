@@ -1,0 +1,21 @@
+.quiz__status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.quiz__category {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.quiz__category__label {
+
+}
+
+.quiz__category_name {
+  font-weight: 700;
+  font-size: 1.5em;
+}

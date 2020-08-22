@@ -1,3 +1,15 @@
+.container {
+  width: 90%;
+  min-height: 80vh;
+  max-width: 360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 input, select, select option {
   justify-self: self-end;
   height: 50px;

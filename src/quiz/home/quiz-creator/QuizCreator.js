@@ -16,7 +16,7 @@ const QuizCreator = () => {
     <option key={category.code} value={category.code}>{category.name}</option>
   );
 
-  return <>
+  return <div className="container">
     <Title/>
     <div className="form-group">
       <label htmlFor="category">Category</label>
@@ -30,7 +30,7 @@ const QuizCreator = () => {
       <input name="question_count" type="text"></input>
     </div>
     <button className="new-quiz-button" onClick={() => startQuiz(category)}>Start quiz</button>
-  </>
+  </div>
 };
 
 export default QuizCreator;
